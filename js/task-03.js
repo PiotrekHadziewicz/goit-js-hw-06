@@ -12,3 +12,14 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const list = document.querySelector(".gallery");
+list.style.display = "flex";
+list.style.flexDirection = "row";
+list.style.justifyContent = "space-between";
+const fragment = document.createDocumentFragment();
+for (const image of images) {
+  const li = document.createElement("li");
+  li.insertAdjacentHTML("beforeend", `<img src=${image.url} alt=${image.alt} width=400px height=200px>`);
+  fragment.append(li);
+}
+list.append(fragment);
